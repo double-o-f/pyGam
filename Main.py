@@ -24,7 +24,6 @@ screen = pygame.display.set_mode([fLength, fHight])
 screen.fill((255, 255, 255))
 
 
-
 running = True
 while running:
     pygame.time.delay(17)
@@ -33,7 +32,6 @@ while running:
 
         if event.type == pygame.QUIT:
             run = False
-
 
     keys = pygame.key.get_pressed()
     
