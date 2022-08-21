@@ -29,6 +29,15 @@ if random.randint(0,1) == 1:
 else:
     moveY = False
 
+
+pos2X = posX
+pos2Y = posY
+
+move2X = moveX
+move2Y = moveY
+
+frames = 0
+
 R = 255
 G = 0
 B = 0
@@ -41,13 +50,46 @@ screen = pygame.display.set_mode([fLength, fHight])
 
 running = True
 while running:
-    pygame.time.delay(17)
+    frames += 1
+    pygame.time.delay(16)
 
     for event in pygame.event.get():
 
         if event.type == pygame.QUIT:
             run = False
 
+#----2nd rect----
+    if frames >= 1000:
+        if move2X == True:
+            if pos2X - vel >= 1:
+                pos2X -= vel
+            elif pos2X - vel < 1:
+                pos2X = 1
+                move2X = False
+
+        if move2X == False:
+            if pos2X + vel <= fLength-siz:
+                pos2X += vel
+            elif pos2X + vel > fLength-siz:
+                pos2X = fLength-siz
+                move2X = True
+
+        if move2Y == True:
+            if pos2Y - vel >= 1:
+                pos2Y -= vel
+            elif pos2Y - vel < 1:
+                pos2Y = 1
+                move2Y = False
+
+        if move2Y == False:
+            if pos2Y + vel <= fHight-siz:
+                pos2Y += vel
+            elif pos2Y + vel > fHight-siz:
+                pos2Y = fHight-siz
+                move2Y = True
+        pygame.draw.rect(screen, (0, 0, 0), pygame.Rect(pos2X, pos2Y, siz, siz))
+
+#----1st redct----
     if moveX == True:
         if posX - vel >= 1:
             posX -= vel
@@ -75,6 +117,7 @@ while running:
         elif posY + vel > fHight-siz:
             posY = fHight-siz
             moveY = True
+
 
     if R == 255 and G < 255 and B == 0:
         G += 1
