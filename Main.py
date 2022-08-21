@@ -1,4 +1,3 @@
-import time
 import pygame
 #import os
 #import socket
@@ -37,31 +36,31 @@ while running:
     
 
     if keys[pygame.K_LEFT]:
-        if posX - vel >= rezMul:
+        if posX - vel >= rezMul/2:
             posX -= vel
-        elif posX - vel < rezMul:
-            posX = rezMul
+        elif posX - vel < rezMul/2:
+            posX = rezMul/2
 
     if keys[pygame.K_RIGHT]:
-        if posX + vel <= fLength-rezMul:
+        if posX + vel <= fLength-rezMul/2:
             posX += vel
-        elif posX + vel > fLength-rezMul:
-            posX = fLength-rezMul
+        elif posX + vel > fLength-rezMul/2:
+            posX = fLength-rezMul/2
 
     if keys[pygame.K_UP]:
-        if posY - vel >= rezMul:
+        if posY - vel >= rezMul/2:
             posY -= vel
-        elif posY - vel < rezMul:
-            posY = rezMul
+        elif posY - vel < rezMul/2:
+            posY = rezMul/2
 
     if keys[pygame.K_DOWN]:
-        if posY + vel <= fHight-rezMul:
+        if posY + vel <= fHight-rezMul/2:
             posY += vel
-        elif posY + vel > fHight-rezMul:
-            posY = fHight-rezMul
+        elif posY + vel > fHight-rezMul/2:
+            posY = fHight-rezMul/2
 
 
-    pygame.draw.circle(screen, (0, 0, 255), (posX, posY), rezMul)
+    pygame.draw.circle(screen, (0, 0, 255), (posX, posY), rezMul/2)
     pygame.display.flip()
     screen.fill((255, 255, 255))
 
